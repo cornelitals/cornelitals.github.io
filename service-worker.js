@@ -6,6 +6,7 @@ else
     console.log("Workbox failed to load")
 
 workbox.precaching.precacheAndRoute([
+    { url: '/', revision: '1' },
     { url: '/manifest.json', revision: '1' },
     { url: '/index.html', revision: '1' },
     { url: '/standing.html', revision: '1' },
@@ -55,7 +56,7 @@ workbox.routing.registerRoute(
             new workbox.cacheableResponse.Plugin({
                 statuses: [0, 200],
             }),
-            new workbox.expiration.Plugins({
+            new workbox.expiration.Plugin({
                 maxAgeSeconds: 60 * 60 * 24 * 365,
                 maxEntries: 30,
             }),
