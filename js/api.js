@@ -2,7 +2,7 @@ const base_url = "https://api.football-data.org/v2/";
 const API_KEY = "43c5599d14b4447a96b1493a0483084a";
 
 // Code for fetch
-function fetchUrl(url) {
+function fetchApi(url) {
     return fetch(base_url + url, {
         headers: {
             "X-Auth-Token": API_KEY
@@ -91,7 +91,7 @@ function getLeague() {
         });
     }
     
-    fetchUrl("competitions?plan=TIER_ONE")
+    fetchApi("competitions?plan=TIER_ONE")
         .then(status)
         .then(json)
         .then(processLeagueToHtml)
@@ -198,7 +198,7 @@ function getStandingById() {
             });
         }
 
-        fetchUrl("competitions/" + idParam + "/standings?standingType=TOTAL")
+        fetchApi("competitions/" + idParam + "/standings?standingType=TOTAL")
             .then(status)
             .then(json)
             .then(function(data) {
@@ -279,7 +279,7 @@ function getScheduleById() {
             });
         }
         
-        fetchUrl("competitions/" + idParam + "/matches?status=SCHEDULED")
+        fetchApi("competitions/" + idParam + "/matches?status=SCHEDULED")
             .then(status)
             .then(json)
             .then(function(data) {

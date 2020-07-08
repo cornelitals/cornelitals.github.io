@@ -10,6 +10,8 @@ workbox.precaching.precacheAndRoute([
     { url: '/manifest.json', revision: '1' },
     { url: '/index.html', revision: '1' },
     { url: '/nav.html', revision: '1' },
+    { url: '/standing.html', revision: '1' },
+    { url: '/schedule.html', revision: '1' },
     { url: '/css/materialize.min.css', revision: '1' },
     { url: '/css/index.css', revision: '1' },
     { url: '/js/materialize.min.js', revision: '1' },
@@ -43,7 +45,7 @@ workbox.precaching.precacheAndRoute([
     { url: '/images/icon/android-chrome-512x512.png', revision: '1' },
     { url: '/images/icon/safari-pinned-tab.svg', revision: '1' },
 ], {
-    ignoreURLParametersMatching: [/.*/]
+    ignoreUrlParametersMatching: [/.*/]
 });
 
 workbox.routing.registerRoute(
@@ -54,30 +56,6 @@ workbox.routing.registerRoute(
             new workbox.cacheableResponse.Plugin({
                 statuses: [0, 200],
             }),
-            new workbox.expiration.Plugin({
-                maxAgeSeconds: 60 * 60 * 24 * 30
-            })
-        ]
-    })
-);
-
-workbox.routing.registerRoute(
-    new RegExp("/standing.html"),
-    workbox.strategies.staleWhileRevalidate({
-        cacheName: "standing-football-league",
-        plugins: [
-            new workbox.expiration.Plugin({
-                maxAgeSeconds: 60 * 60 * 24 * 30
-            })
-        ]
-    })
-);
-
-workbox.routing.registerRoute(
-    new RegExp("/schedule.html"),
-    workbox.strategies.staleWhileRevalidate({
-        cacheName: "schedule-football-league",
-        plugins: [
             new workbox.expiration.Plugin({
                 maxAgeSeconds: 60 * 60 * 24 * 30
             })
