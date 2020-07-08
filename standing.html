@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football League</title>
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icon/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icon/favicon-32x32.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="images/icon/safari-pinned-tab.svg" color="#00695C">
+    <meta name="theme-color" content="#00695C">
+</head>
+<body>
+    <!--Navigation-->
+    <nav class="teal darken-3">
+        <div class="nav-wrapper container">
+            <a href="./index.html" class="brand-logo center">Football</a>
+            <a href="./index.html" id="arrow-back">
+                <i class="material-icons">arrow_back</i>
+            </a>
+        </div>
+    </nav>
+
+    <!--Content-->
+    <main class="container center-align">
+        <div id="loader" class="progress">
+            <div class="indeterminate"></div>
+        </div>
+        <div class="row" id="button-area">
+            <div class="col s12 waves-effect waves-light btn teal" id="favorite">
+                <i class="material-icons left">favorite</i>Add to Favorite
+            </div>
+            <div class="col s12 waves-effect waves-light btn teal" id="remove">
+                <i class="material-icons left">favorite</i>Remove from Favorite
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div id="body-content"></div>
+    </main>
+
+    <!--Script-->
+    <script src="js/materialize.min.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/idb.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/standing.js"></script>
+</body>
+</html>

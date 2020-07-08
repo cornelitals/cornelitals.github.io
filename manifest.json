@@ -1,0 +1,22 @@
+{
+    "name": "Football League",
+    "short_name": "Football",
+    "description": "A website that shows league's standing and schedule",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#00695c",
+    "theme_color": "#00695c",
+    "icons": [
+        {
+            "src": "images/icon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "images/icon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "gcm_sender_id": "276296065142"
+}
