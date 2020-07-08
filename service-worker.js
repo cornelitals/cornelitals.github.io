@@ -9,8 +9,6 @@ workbox.precaching.precacheAndRoute([
     { url: '/', revision: '1' },
     { url: '/manifest.json', revision: '1' },
     { url: '/index.html', revision: '1' },
-    { url: '/standing.html', revision: '1' },
-    { url: '/schedule.html', revision: '1' },
     { url: '/nav.html', revision: '1' },
     { url: '/css/materialize.min.css', revision: '1' },
     { url: '/css/index.css', revision: '1' },
@@ -57,10 +55,33 @@ workbox.routing.registerRoute(
                 statuses: [0, 200],
             }),
             new workbox.expiration.Plugin({
-                maxAgeSeconds: 60 * 60 * 24 * 365,
-                maxEntries: 30,
-            }),
-        ],
+                maxAgeSeconds: 60 * 60 * 24 * 30
+            })
+        ]
+    })
+);
+
+workbox.routing.registerRoute(
+    new RegExp("/standing.html"),
+    workbox.strategies.staleWhileRevalidate({
+        cacheName: "standing-football-league",
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxAgeSeconds: 60 * 60 * 24 * 30
+            })
+        ]
+    })
+);
+
+workbox.routing.registerRoute(
+    new RegExp("/schedule.html"),
+    workbox.strategies.staleWhileRevalidate({
+        cacheName: "schedule-football-league",
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxAgeSeconds: 60 * 60 * 24 * 30
+            })
+        ]
     })
 );
 
